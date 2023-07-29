@@ -5,7 +5,7 @@ In Progress
 
 ## Overview
 
-A book tracker made using Vite Typescript and Vanilla JavaScript. The project idea came from the Odin Project's Full Stack JavaScript Section and I believed this was a good idea to help me learn Typscript.
+A book tracker made using Vite TypeScript and Vanilla JavaScript. The project idea came from the Odin Project's Full Stack JavaScript Section and I believed this was a good idea to help me learn Typscript.
 
 ## Features
 - [] Display Books
