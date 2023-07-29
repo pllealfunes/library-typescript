@@ -12,6 +12,5 @@ A book tracker made using Vite TypeScript and Vanilla JavaScript. The project id
 - [] Create Books
 - [] Update Books Read or Not Read
 - [] Delete Book
-- [] Book Review/Rating?
 - [] Save to Local Storage
 - [] Tailwind?

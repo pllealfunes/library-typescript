@@ -1,13 +1,48 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library</title>
+</head>
+
+<body>
+  <div id="app">
+    <section class="newBook">
+      <h2 class="formTitle">Add New Book</h2>
+      <form class="newBookForm" id="newBookForm">
+        <label for="newBookTitle" class="newBookTitle">Enter Book Title
+          <input class="newBookTitle" id="newBookTitle" type="text" placeholder="Add Book Title" />
+        </label>
+        <label for="newBookAuthor" class="newBookAuthor">Enter Book Author
+          <input class="newBookAuthor" id="newBookAuthor" type="text" placeholder="Add Book Author" />
+        </label>
+        <label for="pageCount" class="pageCount">Enter Number of Pages
+          <input class="pageCount" id="pageCount" type="number" min="1" placeholder="Number of Pages" />
+        </label>
+        <label for="ifRead" class="ifRead">Finished Reading?
+          <input type="checkbox" id="ifRead" name="ifRead">
+        </label>
+        <button class="newBookBtn" title="Add new book" aria-label="Add new book to list">
+          Add
+        </button>
+      </form>
+    </section>
+    <section class="library">
+      <div class="book">
+        <div class="deleteContainer">
+          <button class="deleteBtn">X</button>
+        </div>
+        <h3 class="bookTitle">Book 1</h3>
+        <p class="bookAuthor">By: Author 1</p>
+        <p class="pageCount">Pages: 123</p>
+        <button class="readStatus">Read</button>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
