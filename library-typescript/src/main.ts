@@ -1,5 +1,56 @@
 import './style.css'
 
+const bookList = (): void => {
+    const myList: string | null = localStorage.getItem("books")
+
+    if (myList) {
+
+        const parsedList: { id: string, title: string, author: string, pageCount: string, readStatus: boolean }[] = JSON.parse(myList)
+
+        for (let book of parsedList) {
+            const shelf = document.getElementById("shelf") as HTMLFormElement
+
+            const bookContainer = document.createElement("li");
+            const deleteContainer = document.createElement("div");
+
+
+            const deleteBtn = document.createElement("button")
+
+            const title = document.createElement("h3")
+            const author = document.createElement("p")
+            const count = document.createElement("p")
+            const readStatus = document.createElement("button")
+
+            bookContainer.setAttribute("class", "book")
+
+
+            deleteBtn.setAttribute("class", "deleteBtn")
+            deleteBtn.textContent = "X"
+
+
+            title.setAttribute("class", "bookTitle")
+            title.textContent = book.title
+            author.setAttribute("class", "bookAuthor")
+            author.textContent = `By: ${book.author}`
+            count.setAttribute("class", "pageCount")
+            count.textContent = `Pages: ${book.pageCount}`
+            readStatus.textContent = book.readStatus ? "Read" : "Not Read"
+            readStatus.setAttribute("class", "readStatus")
+
+            shelf?.appendChild(bookContainer);
+            bookContainer?.appendChild(deleteContainer);
+            deleteContainer?.appendChild(deleteBtn);
+            bookContainer?.appendChild(title);
+            bookContainer?.appendChild(author);
+            bookContainer?.appendChild(count);
+            bookContainer?.appendChild(readStatus);
+        }
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", bookList)
+
 interface Book {
     id: string,
     title: string,
@@ -19,7 +70,7 @@ class newBook implements Book {
     ) { }
 }
 
-const books: object[] = [];
+let books: Book[] = []
 
 const newBookBtn = document.getElementById("newBookForm") as HTMLFormElement
 
@@ -76,8 +127,12 @@ newBookBtn.addEventListener("submit", (event: SubmitEvent): void => {
     bookContainer?.appendChild(readStatus);
 
     // Push new book to books array
-    books.push(newBook)
-    console.log(newBook)
+    books.push(createBook)
+
+    // Save to Local Storage
+    localStorage.setItem("books", JSON.stringify(books))
+
+    console.log(books)
 
     // Add event listener on "read" book button
     readStatus.addEventListener('click', () => {
@@ -88,10 +143,12 @@ newBookBtn.addEventListener("submit", (event: SubmitEvent): void => {
 
     // Delete book from books array
     deleteBtn.addEventListener('click', () => {
-        const array = books.filter(book => book != createBook)
-        console.log(array);
-
-
+        const newBooks = books.filter(book => book.id !== createBook.id)
+        books = newBooks;
+        bookContainer.remove();
+        // Save to Local Storage
+        localStorage.setItem("books", JSON.stringify(books))
+        return console.log(newBooks)
     })
 })
 

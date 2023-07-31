@@ -8,9 +8,9 @@ In Progress
 A book tracker made using Vite TypeScript and Vanilla JavaScript. The project idea came from the Odin Project's Full Stack JavaScript Section and I believed this was a good idea to help me learn Typscript.
 
 ## Features
-- [] Display Books
-- [] Create Books
-- [] Update Books Read or Not Read
-- [] Delete Book
-- [] Save to Local Storage
-- [] Tailwind?
+- [X] Display Books
+- [X] Create Books
+- [X] Update Books Read or Not Read
+- [X] Delete Book
+- [X] Save to Local Storage
+- [] Tailwind
