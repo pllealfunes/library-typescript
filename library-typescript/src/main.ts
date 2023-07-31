@@ -44,7 +44,25 @@ const bookList = (): void => {
             bookContainer?.appendChild(author);
             bookContainer?.appendChild(count);
             bookContainer?.appendChild(readStatus);
+
+            // Add event listener on "read" book button
+            readStatus.addEventListener('click', () => {
+                const newStatus = book.readStatus ? book.readStatus = false : book.readStatus = true
+                newStatus ? readStatus.innerText = "Read" : readStatus.innerText = "Not Read"
+                console.log(parsedList);
+
+            })
+
+            // Delete book from books array
+            deleteBtn.addEventListener('click', () => {
+                const newBooks = books.filter(singleBook => singleBook.id !== book.id)
+                books = newBooks;
+                bookContainer.remove();
+                // Save to Local Storage
+                localStorage.setItem("books", JSON.stringify(books))
+            })
         }
+
     }
 
 }
