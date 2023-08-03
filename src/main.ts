@@ -1,14 +1,15 @@
 import './style.css'
 
+const shelf = document.getElementById("shelf") as HTMLFormElement
+const myList: string | null = localStorage.getItem("books")
+
 const bookList = (): void => {
-    const myList: string | null = localStorage.getItem("books")
 
     if (myList) {
 
         const parsedList: { id: string, title: string, author: string, pageCount: string, readStatus: boolean }[] = JSON.parse(myList)
 
         for (let book of parsedList) {
-            const shelf = document.getElementById("shelf") as HTMLFormElement
 
             const bookContainer = document.createElement("li");
             const deleteContainer = document.createElement("div");
@@ -77,7 +78,7 @@ interface Book {
     checked: boolean
 }
 
-class newBook implements Book {
+class NewBook implements Book {
 
     constructor(
         public id: string,
@@ -103,9 +104,8 @@ newBookBtn.addEventListener("submit", (event: SubmitEvent): void => {
     const bookId = books.length ? books.length + 1 : 1
 
     // Create new book object
-    const createBook = new newBook(String(bookId), bookTitle, bookAuthor, pageCount, ifRead)
+    const createBook = new NewBook(String(bookId), bookTitle, bookAuthor, pageCount, ifRead)
 
-    const shelf = document.getElementById("shelf") as HTMLFormElement
 
     // Create book details li
 
@@ -165,9 +165,7 @@ newBookBtn.addEventListener("submit", (event: SubmitEvent): void => {
         books = newBooks;
         bookContainer.remove();
         // Save to Local Storage
-        localStorage.setItem("books", JSON.stringify(books))
+        //localStorage.setItem("books", JSON.stringify(books))
         return console.log(newBooks)
     })
 })
-
-
