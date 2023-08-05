@@ -5,43 +5,66 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/dist/output.css" rel="stylesheet">
   <title>Library</title>
 </head>
 
 <body>
   <div id="app">
-    <section class="newBook">
-      <h2 class="formTitle">Add New Book</h2>
-      <form class="newBookForm" id="newBookForm">
-        <label for="newBookTitle" class="newBookTitle">Enter Book Title
-          <input class="newBookTitle" id="newBookTitle" type="text" placeholder="Add Book Title" />
+    <section>
+      <form class="items-center justify-center flex flex-col gap-4 sm:text-xl bg-orange-300 shadow-md rounded-md"
+        id="newBookForm">
+        <h2 class="mb-6 text-center text-3xl font-bold text-slate-900 sm:text-3xl">Add New Book</h2>
+        <label for="newBookTitle">Title:
+          <input
+            class="rounded border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="newBookTitle" type="text" />
         </label>
-        <label for="newBookAuthor" class="newBookAuthor">Enter Book Author
-          <input class="newBookAuthor" id="newBookAuthor" type="text" placeholder="Add Book Author" />
+        <label for="newBookAuthor" class="newBookAuthor">Author:
+          <input
+            class="rounded border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="newBookAuthor" type="text" />
         </label>
-        <label for="pageCount" class="pageCount">Enter Number of Pages
-          <input class="pageCount" id="pageCount" type="number" min="1" placeholder="Number of Pages" />
+        <label for="pageCount" class="pageCount">Number of Pages:
+          <input
+            class="rounded w-24 border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="pageCount" type="number" min="1" />
         </label>
         <label for="ifRead" class="ifRead">Finished Reading?
-          <input type="checkbox" id="ifRead" name="ifRead">
+          <input type="checkbox" id="ifRead" name="ifRead"
+            class="bg-red-100 border-red-300 text-red-500 focus:ring-red-200">
         </label>
-        <button id="newBookBtn" title="Add new book" aria-label="Add new book to list">
-          Add
-        </button>
+        <div class="flex items-center">
+          <button id="newBookBtn" title="Add new book" aria-label="Add new book to list"
+            class="rounded bg-green-700 text-white m-3 w-24">
+            Add
+          </button>
+        </div>
       </form>
     </section>
-    <section class="library" id="library">
-      <ol id="shelf">
-        <li class="book">
-          <div class="deleteContainer">
-            <button class="deleteBtn">X</button>
-          </div>
-          <h3 class="bookTitle">Book 1</h3>
-          <p class="bookAuthor">By: Author 1</p>
-          <p class="pageCount">Pages: 123</p>
-          <button id="readStatus" class="readStatus">Read</button>
-        </li>
-      </ol>
+
+    <section>
+
+      <table class="min-w-full text-center text-sm my-3">
+        <thead class="border-b font-medium dark:border-neutral-500">
+          <tr>
+            <th scope="col" class="px-6 py-4">Title</th>
+            <th scope="col" class="px-6 py-4">Arthur</th>
+            <th scope="col" class="px-6 py-4">Pages</th>
+            <th scope="col" class="px-6 py-4">Status</th>
+            <th scope="col" class="px-6 py-4">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b dark:border-neutral-500">
+            <td class="bookTitle whitespace-nowrap px-6 py-4">Harry Potter</td>
+            <td class="bookAuthor whitespace-nowrap px-6 py-4">JK Rowling</td>
+            <td class="pageCount whitespace-nowrap px-6 py-4">300</td>
+            <td class="whitespace-nowrap px-6 py-4"><button id="readStatus" class="readStatus">Read</button></td>
+            <td class="deleteBtn text-red-700 whitespace-nowrap px-6 py-4">X</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </div>
   <script type="module" src="/src/main.ts"></script>
