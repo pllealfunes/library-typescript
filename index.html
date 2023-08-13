@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./dist/assets/index-77b91f9e.css" rel="stylesheet">
+  <link href="/dist/output.css" rel="stylesheet">
   <title>Library</title>
 </head>
 
@@ -44,7 +44,7 @@
 
     <section id="bookShelfContainer">
 
-      <table id="bookShelf" class="min-w-full text-center text-sm my-3">
+      <table id="bookTable" class="min-w-full text-center text-sm my-3">
         <thead class="border-b font-medium dark:border-neutral-500">
           <tr>
             <th scope="col" class="px-6 py-4">Title</th>
@@ -54,22 +54,20 @@
             <th scope="col" class="px-6 py-4">Remove</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="bookShelf">
           <tr class="bookContainer border-b dark:border-neutral-500">
             <td class="bookTitle whitespace-nowrap px-6 py-4">Harry Potter</td>
             <td class="bookAuthor whitespace-nowrap px-6 py-4">JK Rowling</td>
             <td class="pageCount whitespace-nowrap px-6 py-4">300</td>
-            <td class="readContainer whitespace-nowrap px-6 py-4"><button id="readStatus"
-                class="readStatus">Read</button>
+            <td><button class="readStatus whitespace-nowrap px-3 py-2 rounded-sm bg-green-600 text-white">Read</button>
             </td>
-            <td class="deleteBtn whitespace-nowrap px-6 py-4"><button
-                class="deleteBtn text-red-700 whitespace-nowrap px-6 py-4">X</button></td>
+            <td><button class="deleteBtn text-red-700 whitespace-nowrap px-6 py-4 rounded-sm">X</button></td>
           </tr>
         </tbody>
       </table>
     </section>
   </div>
-  <script type="module" src="/dist/assets/index-7f1eb550.js"></script>
+  <script type="module" src="./src/main.ts"></script>
 </body>
 
 </html>
