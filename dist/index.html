@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Library</title>
+  <script type="module" crossorigin src="/library-typescript/assets/index-770c6364.js"></script>
+  <link rel="stylesheet" href="/library-typescript/assets/index-19d62546.css">
+</head>
+
+<body>
+  <div id="app">
+    <section>
+      <form class="items-center justify-center flex flex-col gap-4 sm:text-xl bg-orange-300 shadow-md rounded-md"
+        id="newBookForm">
+        <h2 class="mb-6 text-center text-3xl font-bold text-slate-900 sm:text-3xl">Add New Book</h2>
+        <label for="newBookTitle">Title:
+          <input
+            class="rounded border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="newBookTitle" type="text" />
+        </label>
+        <label for="newBookAuthor" class="newBookAuthor">Author:
+          <input
+            class="rounded border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="newBookAuthor" type="text" />
+        </label>
+        <label for="pageCount" class="pageCount">Number of Pages:
+          <input
+            class="rounded w-24 border border-solid border-slate-900 p-1 text-2xl text-black dark:border-none sm:text-3xl mt-2"
+            id="pageCount" type="number" min="1" />
+        </label>
+        <label for="ifRead" class="ifRead">Finished Reading?
+          <input type="checkbox" id="ifRead" name="ifRead"
+            class="bg-red-100 border-red-300 text-red-500 focus:ring-red-200">
+        </label>
+        <div class="flex items-center">
+          <button id="newBookBtn" title="Add new book" aria-label="Add new book to list"
+            class="rounded bg-green-700 text-white m-3 w-24">
+            Add
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="bookShelfContainer">
+
+      <table id="bookTable" class="min-w-full text-center text-sm my-3">
+        <thead class="border-b font-medium dark:border-neutral-500">
+          <tr>
+            <th scope="col" class="px-6 py-4">Title</th>
+            <th scope="col" class="px-6 py-4">Arthur</th>
+            <th scope="col" class="px-6 py-4">Pages</th>
+            <th scope="col" class="px-6 py-4">Status</th>
+            <th scope="col" class="px-6 py-4">Remove</th>
+          </tr>
+        </thead>
+        <tbody id="bookShelf">
+          <tr class="bookContainer border-b dark:border-neutral-500">
+            <td class="bookTitle whitespace-nowrap px-6 py-4">Harry Potter</td>
+            <td class="bookAuthor whitespace-nowrap px-6 py-4">JK Rowling</td>
+            <td class="pageCount whitespace-nowrap px-6 py-4">300</td>
+            <td><button class="readStatus whitespace-nowrap px-3 py-2 rounded-sm bg-green-600 text-white">Read</button>
+            </td>
+            <td><button class="deleteBtn text-red-700 whitespace-nowrap px-6 py-4 rounded-sm">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  
+</body>
+
+</html>
