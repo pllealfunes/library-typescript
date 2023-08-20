@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default ({
-    base: "/library-typescript/",
+    base: "",
     build: {
         outDir: 'dist',
     },
