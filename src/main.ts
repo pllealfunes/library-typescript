@@ -79,21 +79,25 @@ const updateReadStatus = (book: Book, readStatusButton: HTMLButtonElement) => {
     book.status ? readStatusButton.setAttribute("class", "whitespace-nowrap px-3 py-2 rounded-sm bg-green-600 text-white") : readStatusButton.setAttribute("class", "whitespace-nowrap px-3 py-2 rounded-sm bg-red-700 text-white")
 
     // Update the status in the 'books' array
-    const bookIndex = books.findIndex(singleBook => singleBook.id === book.id);
-    if (bookIndex !== -1) {
-        books[bookIndex].status = book.status;
+    if (books) {
+        const bookIndex = books.findIndex(singleBook => singleBook.id === book.id);
+        if (bookIndex !== -1) {
+            books[bookIndex].status = book.status;
 
-        // Update the 'books' array in local storage
-        localStorage.setItem("books", JSON.stringify(books));
+            // Update the 'books' array in local storage
+            localStorage.setItem("books", JSON.stringify(books));
+        }
     }
 };
 
 const deleteBook = (book: Book, bookContainer: HTMLTableRowElement) => {
-    const index = books.findIndex(b => b.id === book.id)
-    if (index !== -1) {
-        books.splice(index, 1);
-        localStorage.setItem("books", JSON.stringify(books))
-        bookContainer.remove()
+    if (books) {
+        const index = books.findIndex(singleBook => singleBook.id === book.id)
+        if (index !== -1) {
+            books.splice(index, 1);
+            localStorage.setItem("books", JSON.stringify(books))
+            bookContainer.remove()
+        }
     }
 };
 
